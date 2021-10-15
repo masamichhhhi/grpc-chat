@@ -1,0 +1,10 @@
+version: '3'
+services:
+  proto:
+    command: ./proto/scripts/protoc.sh
+    platform: linux/amd64
+    build:
+      context: ./proto
+      dockerfile: Dockerfile
+    volumes:
+      - .:/proto

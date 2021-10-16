@@ -8,3 +8,22 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/proto
+  server:
+    command: ./scripts/server.sh
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/go/src/grpc-web-react-hooks
+    ports:
+      - "9090:9090"
+    depends_on:
+      - proto
+  envoy:
+    build:
+      context: ./envoy
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - server

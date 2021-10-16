@@ -3,7 +3,7 @@
 set -xe
 
 SERVER_OUTPUT_DIR=server/messenger
-CLIENT_OUTPUT_DIR=client/messenger
+CLIENT_OUTPUT_DIR=client/src/messenger
 
 protoc --version
 protoc --proto_path=proto messenger.proto \

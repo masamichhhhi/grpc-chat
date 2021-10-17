@@ -18,7 +18,7 @@ export const useMessageForm = (client: MessengerClient) => {
       event.preventDefault();
       const req = new MessageRequest();
       req.setMessage(message);
-      client.createMessage(req, null, (res) => console.log(res));
+      client.createMessage(req, null, (err, res) => console.log(err));
       setMessage("");
     },
     [client, message]

@@ -20,7 +20,7 @@ type server struct {
 	requests []*pb.MessageRequest
 }
 
-func (s *server) GetMessege(_ *empty.Empty, stream pb.Messenger_GetMessagesServer) error {
+func (s *server) GetMessages(_ *empty.Empty, stream pb.Messenger_GetMessagesServer) error {
 	for _, r := range s.requests {
 		if err := stream.Send(&pb.MessageResponse{Message: r.GetMessage()}); err != nil {
 			return err
